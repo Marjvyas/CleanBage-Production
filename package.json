@@ -4,9 +4,9 @@
   "description": "Production-ready waste management gamification platform",
   "private": true,
   "engines": {
-  "node": ">=18.0.0",
-  "npm": ">=9.0.0"
-},
+    "node": ">=18.0.0",
+    "npm": ">=9.0.0"
+  },
   "scripts": {
     "dev": "next dev",
     "build": "next build",
