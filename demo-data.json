@@ -90,6 +90,20 @@
       "qrIsActive": false,
       "createdAt": "2025-07-21T03:30:54.499Z",
       "updatedAt": "2025-07-21T03:32:21.779Z"
+    },
+    "USER1753110774245": {
+      "id": "USER1753110774245",
+      "userId": "USER1753110774245",
+      "name": "Marj Vyas",
+      "email": "vyasmarj@gmail.com",
+      "password": "Mnnnnnn@1",
+      "role": "user",
+      "society": "Society",
+      "points": 0,
+      "lastScanTime": null,
+      "qrReactivateTime": null,
+      "qrIsActive": true,
+      "createdAt": "2025-07-21T15:12:54.245Z"
     }
   },
   "transactions": {
