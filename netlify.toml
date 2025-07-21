@@ -6,6 +6,7 @@
 [build.environment]
   NODE_VERSION = "22"
   NPM_VERSION = "10"
+  NODE_ENV = "development"
   NEXT_TELEMETRY_DISABLED = "1"
 
 # For Next.js sites, use built-in Next.js plugin
