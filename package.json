@@ -10,7 +10,13 @@
     "start": "next start",
     "lint": "next lint"
   },
-  "keywords": ["waste-management", "gamification", "recycling", "sustainability", "nextjs"],
+  "keywords": [
+    "waste-management",
+    "gamification",
+    "recycling",
+    "sustainability",
+    "nextjs"
+  ],
   "repository": {
     "type": "git",
     "url": "https://github.com/YOUR_USERNAME/CleanBage-Production"
@@ -51,14 +57,17 @@
     "@radix-ui/react-tooltip": "1.1.6",
     "@zxing/library": "^0.21.3",
     "autoprefixer": "^10.4.20",
+    "bcryptjs": "^2.4.3",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "cmdk": "1.0.4",
     "date-fns": "^3.6.0",
     "embla-carousel-react": "8.5.1",
     "input-otp": "1.4.1",
+    "jsonwebtoken": "^9.0.2",
     "lucide-react": "^0.454.0",
-    "next": "15.2.4",
+    "mongodb": "^6.3.0",
+    "next": "^15.2.4",
     "next-themes": "^0.4.4",
     "qr-scanner": "^1.4.2",
     "qrcode": "^1.5.4",
@@ -74,17 +83,14 @@
     "tailwind-merge": "^2.5.5",
     "tailwindcss-animate": "^1.0.7",
     "vaul": "^0.9.6",
-    "zod": "^3.24.1",
-    "mongodb": "^6.3.0",
-    "bcryptjs": "^2.4.3",
-    "jsonwebtoken": "^9.0.2"
+    "zod": "^3.24.1"
   },
   "devDependencies": {
+    "@types/bcryptjs": "^2.4.6",
+    "@types/jsonwebtoken": "^9.0.5",
     "@types/node": "^22",
     "@types/react": "^19",
     "@types/react-dom": "^19",
-    "@types/bcryptjs": "^2.4.6",
-    "@types/jsonwebtoken": "^9.0.5",
     "postcss": "^8.5",
     "tailwindcss": "^3.4.17",
     "typescript": "^5"
