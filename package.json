@@ -8,6 +8,7 @@
     "npm": ">=9.0.0"
   },
   "scripts": {
+    "postinstall": "npm install typescript @types/node --save-dev",
     "dev": "next dev",
     "build": "next build",
     "export": "next build",
