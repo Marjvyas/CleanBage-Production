@@ -1,16 +1,18 @@
 [build]
-  publish = ".next"
   command = "npm run build"
 
 [build.environment]
-  NODE_VERSION = "18"
-  NPM_VERSION = "9"
+  NODE_VERSION = "18.20.8"
+  NPM_VERSION = "10"
   NEXT_TELEMETRY_DISABLED = "1"
 
-[[redirects]]
-  from = "/*"
-  to = "/index.html"
-  status = 200
+# For Next.js sites, use built-in Next.js plugin
+[[plugins]]
+  package = "@netlify/plugin-nextjs"
 
 [context.production.environment]
   NODE_ENV = "production"
+
+# Build cache configuration
+[build.processing]
+  skip_processing = false
