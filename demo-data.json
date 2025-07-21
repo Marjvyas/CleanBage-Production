@@ -1,0 +1,370 @@
+{
+  "users": {
+    "USER001": {
+      "id": "USER001",
+      "userId": "USER001",
+      "name": "Demo User",
+      "email": "demo@cleanbage.com",
+      "points": 253,
+      "role": "user",
+      "lastScanTime": "2025-07-20T11:38:02.346Z",
+      "createdAt": "2025-07-20T11:35:09.905Z",
+      "updatedAt": "2025-07-20T11:38:02.346Z",
+      "qrReactivateTime": 1753083482321,
+      "qrIsActive": false
+    },
+    "user123": {
+      "id": "user123",
+      "userId": "user123",
+      "name": "John Doe",
+      "email": "john@example.com",
+      "points": 153,
+      "role": "user",
+      "lastScanTime": "2025-07-20T12:03:36.499Z",
+      "createdAt": "2025-07-20T11:35:09.905Z",
+      "updatedAt": "2025-07-20T12:03:36.499Z",
+      "qrReactivateTime": 1753085016497,
+      "qrIsActive": false
+    },
+    "collector456": {
+      "id": "collector456",
+      "userId": "collector456",
+      "name": "Jane Smith",
+      "email": "jane@example.com",
+      "points": 100,
+      "role": "collector",
+      "lastScanTime": null,
+      "createdAt": "2025-07-20T11:35:09.905Z"
+    },
+    "COLLECTOR001": {
+      "id": "COLLECTOR001",
+      "userId": "COLLECTOR001",
+      "name": "Demo Collector",
+      "email": "collector@cleanbage.com",
+      "points": 75,
+      "role": "collector",
+      "lastScanTime": null,
+      "createdAt": "2025-07-20T11:35:09.905Z"
+    },
+    "USER1753012569327": {
+      "id": "USER1753012569327",
+      "userId": "USER1753012569327",
+      "name": "TestUser",
+      "email": "testuser@cleanbage.com",
+      "password": "password123",
+      "role": "user",
+      "society": "Green Valley Society",
+      "points": 3,
+      "lastScanTime": "2025-07-20T11:56:22.497Z",
+      "qrReactivateTime": 1753084582480,
+      "qrIsActive": false,
+      "createdAt": "2025-07-20T11:56:09.327Z",
+      "updatedAt": "2025-07-20T11:56:22.498Z"
+    },
+    "USER1753013168093": {
+      "id": "USER1753013168093",
+      "userId": "USER1753013168093",
+      "name": "m",
+      "email": "nnnn@n",
+      "password": "nnnnnn",
+      "role": "user",
+      "society": "Society",
+      "points": 3,
+      "lastScanTime": "2025-07-20T12:07:40.425Z",
+      "qrReactivateTime": 1753085260409,
+      "qrIsActive": false,
+      "createdAt": "2025-07-20T12:06:08.093Z",
+      "updatedAt": "2025-07-20T12:07:40.425Z"
+    },
+    "USER1753068654499": {
+      "id": "USER1753068654499",
+      "userId": "USER1753068654499",
+      "name": "Marj Vyas",
+      "email": "vyas@gmail.com",
+      "password": "nnnnnn",
+      "role": "user",
+      "society": "Society",
+      "points": 3,
+      "lastScanTime": "2025-07-21T03:32:21.779Z",
+      "qrReactivateTime": 1753140741651,
+      "qrIsActive": false,
+      "createdAt": "2025-07-21T03:30:54.499Z",
+      "updatedAt": "2025-07-21T03:32:21.779Z"
+    }
+  },
+  "transactions": {
+    "USER001": [
+      {
+        "id": "txn_1753011482321_p8chs8m3b",
+        "userId": "USER001",
+        "amount": 3,
+        "type": "earn",
+        "source": "waste_collection",
+        "balance": 253,
+        "timestamp": "2025-07-20T11:38:02.321Z"
+      }
+    ],
+    "USER1753012569327": [
+      {
+        "id": "txn_1753012582479_468nh3yv2",
+        "userId": "USER1753012569327",
+        "amount": 3,
+        "type": "earn",
+        "source": "waste_collection",
+        "balance": 3,
+        "timestamp": "2025-07-20T11:56:22.479Z"
+      }
+    ],
+    "user123": [
+      {
+        "id": "txn_1753013016496_alu6a7mkn",
+        "userId": "user123",
+        "amount": 3,
+        "type": "earn",
+        "source": "waste_collection",
+        "balance": 153,
+        "timestamp": "2025-07-20T12:03:36.497Z"
+      }
+    ],
+    "USER1753013168093": [
+      {
+        "id": "txn_1753013260407_hp1d27ql9",
+        "userId": "USER1753013168093",
+        "amount": 3,
+        "type": "earn",
+        "source": "waste_collection",
+        "balance": 3,
+        "timestamp": "2025-07-20T12:07:40.407Z"
+      }
+    ],
+    "USER1753068654499": [
+      {
+        "id": "txn_1753068741649_z3cwrmfsf",
+        "userId": "USER1753068654499",
+        "amount": 3,
+        "type": "earn",
+        "source": "waste_collection",
+        "balance": 3,
+        "timestamp": "2025-07-21T03:32:21.649Z"
+      }
+    ]
+  },
+  "notifications": {
+    "USER001": [
+      {
+        "id": "notif_1753011482348_jm6u4rz19",
+        "userId": "USER001",
+        "title": "EcoCoins Earned! 🎉",
+        "message": "You received 3 EcoCoins for waste collection by Jane Smith!",
+        "type": "reward",
+        "data": {
+          "points": 3,
+          "newBalance": 253,
+          "source": "waste_collection",
+          "collectorId": "collector456",
+          "collectorName": "Jane Smith"
+        },
+        "timestamp": "2025-07-20T11:38:02.348Z",
+        "read": false
+      }
+    ],
+    "collector456": [
+      {
+        "id": "notif_1753011482349_r0a41myc5",
+        "userId": "collector456",
+        "title": "Scan Completed! ✅",
+        "message": "Successfully awarded 3 EcoCoins to Demo User",
+        "type": "info",
+        "data": {
+          "points": 3,
+          "userName": "Demo User",
+          "userId": "USER001"
+        },
+        "timestamp": "2025-07-20T11:38:02.350Z",
+        "read": false
+      }
+    ],
+    "USER1753012569327": [
+      {
+        "id": "notif_1753012582498_bblgxob5o",
+        "userId": "USER1753012569327",
+        "title": "EcoCoins Earned! 🎉",
+        "message": "You received 3 EcoCoins for waste collection by Demo Collector!",
+        "type": "reward",
+        "data": {
+          "points": 3,
+          "newBalance": 3,
+          "source": "waste_collection",
+          "collectorId": "COLLECTOR001",
+          "collectorName": "Demo Collector"
+        },
+        "timestamp": "2025-07-20T11:56:22.498Z",
+        "read": false
+      }
+    ],
+    "COLLECTOR001": [
+      {
+        "id": "notif_1753068741787_dg03yctvb",
+        "userId": "COLLECTOR001",
+        "title": "Scan Completed! ✅",
+        "message": "Successfully awarded 3 EcoCoins to Marj Vyas",
+        "type": "info",
+        "data": {
+          "points": 3,
+          "userName": "Marj Vyas",
+          "userId": "USER1753068654499"
+        },
+        "timestamp": "2025-07-21T03:32:21.787Z",
+        "read": false
+      },
+      {
+        "id": "notif_1753013260432_41idm9tcf",
+        "userId": "COLLECTOR001",
+        "title": "Scan Completed! ✅",
+        "message": "Successfully awarded 3 EcoCoins to m",
+        "type": "info",
+        "data": {
+          "points": 3,
+          "userName": "m",
+          "userId": "USER1753013168093"
+        },
+        "timestamp": "2025-07-20T12:07:40.432Z",
+        "read": false
+      },
+      {
+        "id": "notif_1753013016502_rnhs2ggmy",
+        "userId": "COLLECTOR001",
+        "title": "Scan Completed! ✅",
+        "message": "Successfully awarded 3 EcoCoins to John Doe",
+        "type": "info",
+        "data": {
+          "points": 3,
+          "userName": "John Doe",
+          "userId": "user123"
+        },
+        "timestamp": "2025-07-20T12:03:36.502Z",
+        "read": false
+      },
+      {
+        "id": "notif_1753012582498_6ljuja90v",
+        "userId": "COLLECTOR001",
+        "title": "Scan Completed! ✅",
+        "message": "Successfully awarded 3 EcoCoins to TestUser",
+        "type": "info",
+        "data": {
+          "points": 3,
+          "userName": "TestUser",
+          "userId": "USER1753012569327"
+        },
+        "timestamp": "2025-07-20T11:56:22.498Z",
+        "read": false
+      }
+    ],
+    "user123": [
+      {
+        "id": "notif_1753013016501_j0l4bcygi",
+        "userId": "user123",
+        "title": "EcoCoins Earned! 🎉",
+        "message": "You received 3 EcoCoins for waste collection by Demo Collector!",
+        "type": "reward",
+        "data": {
+          "points": 3,
+          "newBalance": 153,
+          "source": "waste_collection",
+          "collectorId": "COLLECTOR001",
+          "collectorName": "Demo Collector"
+        },
+        "timestamp": "2025-07-20T12:03:36.501Z",
+        "read": false
+      }
+    ],
+    "USER1753013168093": [
+      {
+        "id": "notif_1753013260430_j21fsslm0",
+        "userId": "USER1753013168093",
+        "title": "EcoCoins Earned! 🎉",
+        "message": "You received 3 EcoCoins for waste collection by Demo Collector!",
+        "type": "reward",
+        "data": {
+          "points": 3,
+          "newBalance": 3,
+          "source": "waste_collection",
+          "collectorId": "COLLECTOR001",
+          "collectorName": "Demo Collector"
+        },
+        "timestamp": "2025-07-20T12:07:40.430Z",
+        "read": false
+      }
+    ],
+    "USER1753068654499": [
+      {
+        "id": "notif_1753068741783_bz9kl97jx",
+        "userId": "USER1753068654499",
+        "title": "EcoCoins Earned! 🎉",
+        "message": "You received 3 EcoCoins for waste collection by Demo Collector!",
+        "type": "reward",
+        "data": {
+          "points": 3,
+          "newBalance": 3,
+          "source": "waste_collection",
+          "collectorId": "COLLECTOR001",
+          "collectorName": "Demo Collector"
+        },
+        "timestamp": "2025-07-21T03:32:21.783Z",
+        "read": false
+      }
+    ]
+  },
+  "scanHistory": {
+    "USER001": [
+      {
+        "id": "scan_1753011482346_elpoka64g",
+        "userId": "USER001",
+        "collectorId": "collector456",
+        "pointsAwarded": 3,
+        "timestamp": "2025-07-20T11:38:02.346Z",
+        "location": "Unknown"
+      }
+    ],
+    "USER1753012569327": [
+      {
+        "id": "scan_1753012582497_zrrjr8yby",
+        "userId": "USER1753012569327",
+        "collectorId": "COLLECTOR001",
+        "pointsAwarded": 3,
+        "timestamp": "2025-07-20T11:56:22.497Z",
+        "location": "Unknown"
+      }
+    ],
+    "user123": [
+      {
+        "id": "scan_1753013016499_vq3pobvph",
+        "userId": "user123",
+        "collectorId": "COLLECTOR001",
+        "pointsAwarded": 3,
+        "timestamp": "2025-07-20T12:03:36.499Z",
+        "location": "Unknown"
+      }
+    ],
+    "USER1753013168093": [
+      {
+        "id": "scan_1753013260425_qe40zrxrb",
+        "userId": "USER1753013168093",
+        "collectorId": "COLLECTOR001",
+        "pointsAwarded": 3,
+        "timestamp": "2025-07-20T12:07:40.425Z",
+        "location": "Unknown"
+      }
+    ],
+    "USER1753068654499": [
+      {
+        "id": "scan_1753068741778_c9xh37akn",
+        "userId": "USER1753068654499",
+        "collectorId": "COLLECTOR001",
+        "pointsAwarded": 3,
+        "timestamp": "2025-07-21T03:32:21.779Z",
+        "location": "Unknown"
+      }
+    ]
+  }
+}

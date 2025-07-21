@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Debug localStorage</title>
+</head>
+<body>
+    <h1>Debug localStorage</h1>
+    <button onclick="checkStorage()">Check Storage</button>
+    <button onclick="clearStorage()">Clear Storage</button>
+    <pre id="output"></pre>
+    
+    <script>
+        function checkStorage() {
+            const output = document.getElementById('output');
+            const wasteUser = localStorage.getItem('wasteManagementUser');
+            
+            output.innerHTML = 'localStorage contents:\n\n';
+            
+            if (wasteUser) {
+                output.innerHTML += 'wasteManagementUser:\n';
+                output.innerHTML += JSON.stringify(JSON.parse(wasteUser), null, 2);
+            } else {
+                output.innerHTML += 'No wasteManagementUser found';
+            }
+            
+            output.innerHTML += '\n\nAll localStorage keys:\n';
+            for (let i = 0; i < localStorage.length; i++) {
+                const key = localStorage.key(i);
+                output.innerHTML += `${key}: ${localStorage.getItem(key).substring(0, 100)}\n`;
+            }
+        }
+        
+        function clearStorage() {
+            localStorage.clear();
+            alert('localStorage cleared!');
+            checkStorage();
+        }
+    </script>
+</body>
+</html>

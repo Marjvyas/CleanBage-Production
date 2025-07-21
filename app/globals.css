@@ -1,0 +1,658 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@keyframes gradientFlow {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.animate-gradient-background {
+  background: linear-gradient(-45deg, 
+    #059669,
+    #0284c7,
+    #0d9488,
+    #14b8a6
+  );
+  background-size: 400% 400%;
+  animation: gradientFlow 15s ease infinite;
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes coinPulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.5s ease-out;
+}
+
+.animate-coin-pulse {
+  animation: coinPulse 0.6s ease-in-out;
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 0 0% 3.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 3.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 3.9%;
+    --primary: 0 0% 9%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 0 0% 96.1%;
+    --secondary-foreground: 0 0% 9%;
+    --muted: 0 0% 96.1%;
+    --muted-foreground: 0 0% 45.1%;
+    --accent: 0 0% 96.1%;
+    --accent-foreground: 0 0% 9%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 89.8%;
+    --input: 0 0% 89.8%;
+    --ring: 0 0% 3.9%;
+    --chart-1: 12 76% 61%;
+    --chart-2: 173 58% 39%;
+    --chart-3: 197 37% 24%;
+    --chart-4: 43 74% 66%;
+    --chart-5: 27 87% 67%;
+    --radius: 0.5rem;
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+  .dark {
+    --background: 0 0% 3.9%;
+    --foreground: 0 0% 98%;
+    --card: 0 0% 3.9%;
+    --card-foreground: 0 0% 98%;
+    --popover: 0 0% 3.9%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 0 0% 98%;
+    --primary-foreground: 0 0% 9%;
+    --secondary: 0 0% 14.9%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 0 0% 14.9%;
+    --muted-foreground: 0 0% 63.9%;
+    --accent: 0 0% 14.9%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 14.9%;
+    --input: 0 0% 14.9%;
+    --ring: 0 0% 83.1%;
+    --chart-1: 220 70% 50%;
+    --chart-2: 160 60% 45%;
+    --chart-3: 30 80% 55%;
+    --chart-4: 280 65% 60%;
+    --chart-5: 340 75% 55%;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply text-foreground;
+  }
+}
+
+/* Video Background Styles */
+.video-background-container {
+  position: relative;
+  overflow: hidden;
+}
+
+.video-background-overlay {
+  backdrop-filter: blur(3px);
+}
+
+/* Enhanced transparency for cards over video background */
+.video-card-overlay {
+  background: rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(25px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Ensure video backgrounds work well on mobile */
+@media (max-width: 768px) {
+  .video-background-container video {
+    object-position: center center;
+  }
+}
+
+/* Optimized Video Background Styles */
+.fixed-video-background {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100vw !important;
+  height: 100vh !important;
+  object-fit: cover !important;
+  z-index: -10 !important;
+  transform: translate3d(0, 0, 0) !important;
+  will-change: transform !important;
+  backface-visibility: hidden !important;
+  /* Performance optimizations */
+  pointer-events: none !important;
+  user-select: none !important;
+}
+
+.fixed-video-overlay {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100vw !important;
+  height: 100vh !important;
+  z-index: -5 !important;
+  pointer-events: none !important;
+  transform: translate3d(0, 0, 0) !important;
+  will-change: transform !important;
+}
+
+/* Ensure content can be zoomed while video stays fixed */
+.zoomable-content {
+  position: relative;
+  z-index: 10;
+  min-height: 100vh;
+  transform-origin: top left;
+}
+
+/* Prevent video from being affected by CSS transforms */
+video.background-video {
+  position: fixed;
+  top: 0;
+  left: 0;
+  min-width: 100vw;
+  min-height: 100vh;
+  width: auto;
+  height: auto;
+  object-fit: cover;
+  z-index: -10;
+  transform: none !important;
+  will-change: auto !important;
+}
+
+/* Enhanced zoom handling for video background */
+@media screen {
+  .background-video {
+    /* Prevent video from being affected by page zoom */
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100vw !important;
+    height: 100vh !important;
+    min-width: 100vw !important;
+    min-height: 100vh !important;
+    object-fit: cover !important;
+    z-index: -10 !important;
+    
+    /* Disable transforms and animations that could affect zoom behavior */
+    transform: none !important;
+    transition: none !important;
+    animation: none !important;
+    will-change: auto !important;
+    
+    /* Ensure video stays in place during zoom */
+    margin: 0 !important;
+    padding: 0 !important;
+    border: none !important;
+    outline: none !important;
+  }
+  
+  /* Ensure overlay also stays fixed during zoom */
+  .fixed-video-overlay {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100vw !important;
+    height: 100vh !important;
+    transform: none !important;
+    transition: none !important;
+    will-change: auto !important;
+  }
+}
+
+/* For browser zoom compatibility */
+@supports (zoom: 1) {
+  .background-video {
+    zoom: 1 !important;
+  }
+}
+
+/* Prevent video from scaling with CSS zoom */
+.background-video::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+}
+
+/* Consistent page blur effect for all pages */
+.page-blur-container {
+  background: rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(30px);
+  border-radius: 0.75rem;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Enhanced blur for better visibility over video background */
+.page-enhanced-blur {
+  background: rgba(0, 0, 0, 0.2) !important;
+  backdrop-filter: blur(20px) saturate(110%) brightness(0.9) !important;
+  border-radius: 12px;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05) !important;
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+  transition: all 0.3s ease;
+}
+
+/* Card blur effects for better visual hierarchy */
+.card-blur {
+  background: rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(25px);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+}
+
+.card-subtle-blur {
+  background: rgba(0, 0, 0, 0.05);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+/* Special effect for action cards */
+.action-card-blur {
+  background: rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(22px) saturate(150%);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  transition: all 0.3s ease;
+}
+
+.action-card-blur:hover {
+  background: rgba(0, 0, 0, 0.15);
+  backdrop-filter: blur(30px) saturate(180%);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+/* Modern white blur effects for navigation and login */
+.nav-white-blur {
+  background: rgba(15, 118, 110, 0.6) !important;
+  backdrop-filter: blur(25px) saturate(150%) !important;
+  -webkit-backdrop-filter: blur(25px) saturate(150%) !important;
+  border-top: 1px solid rgba(15, 118, 110, 0.7) !important;
+  box-shadow: 0 -8px 32px rgba(15, 118, 110, 0.35) !important;
+  transition: all 0.3s ease;
+}
+
+.login-white-blur {
+  background: rgba(34, 197, 94, 0.3) !important;
+  backdrop-filter: blur(30px) saturate(200%) !important;
+  border: 1px solid rgba(34, 197, 94, 0.4) !important;
+  box-shadow: 0 25px 50px -12px rgba(34, 197, 94, 0.15) !important;
+  transition: all 0.3s ease;
+}
+
+.login-green-blur {
+  background: rgba(34, 197, 94, 0.3) !important;
+  backdrop-filter: blur(30px) saturate(200%) !important;
+  border: 1px solid rgba(34, 197, 94, 0.4) !important;
+  box-shadow: 0 25px 50px -12px rgba(34, 197, 94, 0.15) !important;
+  transition: all 0.3s ease;
+}
+
+.white-blur-card {
+  background: rgba(34, 197, 94, 0.25) !important;
+  backdrop-filter: blur(25px) !important;
+  border: 1px solid rgba(34, 197, 94, 0.35) !important;
+  box-shadow: 0 20px 40px -12px rgba(34, 197, 94, 0.12) !important;
+}
+
+.green-blur-card {
+  background: rgba(34, 197, 94, 0.25) !important;
+  backdrop-filter: blur(25px) !important;
+  border: 1px solid rgba(34, 197, 94, 0.35) !important;
+  box-shadow: 0 20px 40px -12px rgba(34, 197, 94, 0.12) !important;
+}
+
+/* QR Code Grid for 25x25 pattern */
+.grid-cols-25 {
+  display: grid;
+  grid-template-columns: repeat(25, 1fr);
+}
+
+/* Hide any unwanted notification elements */
+.hide-notification-buttons [data-sonner-toast] button:first-child,
+button[aria-label*="notification"],
+button[aria-label*="Notification"],
+.notification-button,
+[data-notification="true"],
+/* Hide potential black round buttons */
+button[style*="background: black"],
+button[style*="background: rgb(0, 0, 0)"],
+button[style*="background-color: black"],
+button[style*="background-color: rgb(0, 0, 0)"],
+button.rounded-full[style*="background"],
+div.rounded-full[style*="background: black"],
+div.rounded-full[style*="background-color: black"],
+/* Hide Sonner toast close buttons that might appear black */
+[data-sonner-toast] button[aria-label="Close toast"],
+[data-sonner-toast] .sonner-close-button,
+/* Hide any floating notification dots */
+.notification-dot,
+.notification-badge,
+button.notification,
+/* Hide black round elements in navigation area */
+.fixed.bottom-0 button.rounded-full[style*="black"],
+.fixed.bottom-0 div.rounded-full[style*="black"],
+/* Comprehensive black button hiding */
+button[style*="background-color: rgb(0"],
+button[style*="background: rgb(0"],
+div[style*="background-color: rgb(0"] button,
+div[style*="background: rgb(0"] button,
+/* Hide all potential overlay elements near navigation */
+.fixed:not(.bottom-navigation) {
+  bottom: 80px !important; /* Push above navigation */
+}
+
+/* Ensure navigation area is clean and always at bottom */
+.bottom-navigation-area {
+  position: fixed !important;
+  bottom: 0px !important;
+  left: 0px !important;
+  right: 0px !important;
+  z-index: 9999 !important;
+  margin: 0px !important;
+  padding: 0px !important;
+  width: 100vw !important;
+  max-width: 100vw !important;
+  transform: translateZ(0) !important;
+  will-change: transform !important;
+  backface-visibility: hidden !important;
+  box-sizing: border-box !important;
+  /* Additional overrides */
+  margin-bottom: 0px !important;
+  padding-bottom: 0px !important;
+  min-height: auto !important;
+}
+
+/* Override navigation content */
+.bottom-navigation-area > *,
+.bottom-navigation-area * {
+  margin-bottom: 0px !important;
+}
+
+/* Override any body margins that might affect positioning */
+body {
+  margin-bottom: 0 !important;
+}
+
+/* Ensure navigation sticks to viewport bottom */
+.bottom-navigation-area {
+  bottom: 0px !important;
+  min-height: auto !important;
+}
+
+/* Ensure navigation content has no bottom margin/padding */
+.bottom-navigation-area > * {
+  margin-bottom: 0 !important;
+  padding-bottom: 0 !important;
+}
+
+.bottom-navigation-area::before {
+  content: '';
+  position: absolute;
+  top: -20px;
+  left: 0;
+  right: 0;
+  height: 20px;
+  background: transparent;
+  pointer-events: none;
+}
+
+/* Prevent layout shifts and ensure navigation accessibility */
+html {
+  height: 100%;
+  height: 100vh;
+  height: 100dvh; /* Dynamic viewport height for mobile */
+}
+
+body {
+  min-height: 100vh;
+  min-height: 100dvh;
+  position: relative;
+}
+
+/* Mobile-first full screen utilization */
+@media (max-width: 767px) {
+  /* Remove all default margins and padding on mobile */
+  html, body {
+    margin: 0;
+    padding: 0;
+    width: 100vw;
+    height: 100vh;
+    height: 100dvh;
+    overflow-x: hidden;
+  }
+  
+  /* Full width mobile containers */
+  .mobile-full-width {
+    width: 100vw;
+    margin-left: calc(-50vw + 50%);
+    margin-right: calc(-50vw + 50%);
+    padding-left: 0;
+    padding-right: 0;
+  }
+  
+  /* Edge-to-edge mobile layout */
+  .mobile-edge-to-edge {
+    margin: 0;
+    padding: 0;
+    border-radius: 0;
+    width: 100%;
+    max-width: 100vw;
+  }
+  
+  /* Mobile-optimized padding */
+  .mobile-padding {
+    padding: 0.75rem; /* 12px */
+  }
+  
+  .mobile-padding-sm {
+    padding: 0.5rem; /* 8px */
+  }
+  
+  .mobile-padding-lg {
+    padding: 1rem; /* 16px */
+  }
+  
+  /* Full height mobile sections */
+  .mobile-full-height {
+    min-height: calc(100vh - 5rem); /* Account for navigation */
+    min-height: calc(100dvh - 5rem);
+  }
+  
+  /* Mobile-optimized cards */
+  .mobile-card {
+    border-radius: 0.75rem;
+    margin: 0.25rem;
+    padding: 0.875rem;
+  }
+  
+  /* Mobile-optimized grids */
+  .mobile-grid-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.5rem;
+  }
+  
+  .mobile-grid-1 {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+  }
+  
+  /* Mobile touch targets */
+  .mobile-touch {
+    min-height: 44px;
+    min-width: 44px;
+  }
+  
+  /* Mobile text optimization */
+  .mobile-text-sm {
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+  }
+  
+  /* Mobile spacing utilities */
+  .mobile-gap-sm {
+    gap: 0.5rem;
+  }
+  
+  .mobile-gap {
+    gap: 0.75rem;
+  }
+  
+  /* Mobile safe areas */
+  .mobile-safe-top {
+    padding-top: env(safe-area-inset-top);
+  }
+  
+  .mobile-safe-bottom {
+    padding-bottom: max(0.5rem, env(safe-area-inset-bottom));
+  }
+  
+  /* Mobile viewport optimizations */
+  .mobile-viewport {
+    width: 100vw;
+    min-height: 100vh;
+    min-height: 100dvh;
+  }
+}
+
+/* Ensure navigation is always visible on all devices */
+@supports (height: 100dvh) {
+  .bottom-navigation-area {
+    bottom: 0 !important;
+  }
+}
+
+/* Prevent navigation from being hidden behind browser UI */
+@media screen and (max-height: 600px) {
+  .bottom-navigation-area {
+    position: fixed !important;
+    bottom: 0 !important;
+  }
+}
+
+/* Force hide any black round elements */
+*[style*="background-color: black"][style*="border-radius"],
+*[style*="background: black"][style*="border-radius"],
+*[style*="background: rgb(0, 0, 0)"][style*="border-radius"] {
+  display: none !important;
+}
+
+/* Custom toaster styling */
+.toaster-custom {
+  border-radius: 12px !important;
+  border: 1px solid rgba(16, 185, 129, 0.2) !important;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04) !important;
+}
+
+/* Modern navigation enhancements */
+.modern-nav-glass {
+  backdrop-filter: blur(35px) saturate(180%);
+  -webkit-backdrop-filter: blur(35px) saturate(180%);
+  background: rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+/* Enhanced button hover effects */
+.nav-button-modern {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.nav-button-modern:hover {
+  transform: translateY(-2px);
+}
+
+.nav-button-modern:active {
+  transform: translateY(0px) scale(0.95);
+}
+
+/* Logo animation */
+@keyframes logoFloat {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-5px) rotate(2deg); }
+}
+
+.logo-float {
+  animation: logoFloat 3s ease-in-out infinite;
+}
+
+/* Hide React DevTools and other extension buttons */
+.__react-dev-tools__,
+[data-react-devtools],
+/* Hide any third-party notification buttons */
+button[class*="notification"],
+button[id*="notification"],
+div[class*="notification"] button,
+/* Hide browser extension buttons */
+button[style*="position: fixed"][style*="z-index"],
+div[style*="position: fixed"][style*="z-index"] button,
+/* Specifically target black round buttons in bottom area */
+.fixed[style*="bottom"] button[style*="black"],
+.fixed[style*="bottom"] div[style*="black"],
+[style*="position: fixed"][style*="bottom"][style*="black"],
+/* Hide any overlay components that might conflict */
+[data-overlay] button,
+[data-floating] button,
+[data-portal] button {
+  display: none !important;
+  visibility: hidden !important;
+}
+
+/* Additional protection for navigation area */
+.bottom-navigation-area ~ * {
+  z-index: 10 !important; /* Lower than navigation */
+}
